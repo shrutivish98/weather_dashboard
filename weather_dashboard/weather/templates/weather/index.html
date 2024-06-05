@@ -1,0 +1,87 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'weather/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+</head>
+<body>
+    <h1 >Weather Dashboard</h1>
+    <form method="post" style="text-align: center;">
+        {% csrf_token %} 
+        <select name="city" >
+            {% for city in cities %}
+                <option value="{{ city.name }}">{{ city.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Get Weather</button>
+    </form>
+
+    <h2 >Weather Data</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>Pressure</th>
+                <th>Description</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in weather_data %}
+                <tr>
+                    <td>{{ data.city.name }}</td>
+                    <td>{{ data.temperature }}</td>
+                    <td>{{ data.humidity }}</td>
+                    <td>{{ data.pressure }}</td>
+                    <td>{{ data.weather_description }}</td>
+                    <td>{{ data.timestamp }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2 >Air Pollution Data</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>PM2.5</th>
+                <th>PM10</th>
+                <th>O3</th>
+                <th>NO2</th>
+                <th>SO2</th>
+                <th>CO</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in air_pollution_data %}
+                <tr>
+                    <td>{{ data.city.name }}</td>
+                    <td>{{ data.pm25 }}</td>
+                    <td>{{ data.pm10 }}</td>
+                    <td>{{ data.o3 }}</td>
+                    <td>{{ data.no2 }}</td>
+                    <td>{{ data.so2 }}</td>
+                    <td>{{ data.co }}</td>
+                    <td>{{ data.timestamp }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <script src="{% static 'weather/javascript.js' %}"></script>
+</body>
+</html>
+
+
+
+
+{% comment %} style="font-size:18px;  text-align: center!important ;border-radius: 10px; width: 18%;border:2px solid #ddd; "  {% endcomment %}
+{% comment %} style="font-size:18px;text-align: center!important; justify-content: center!important; border-radius: 5px; width: 5%; border:2px solid #ddd;" {% endcomment %}
