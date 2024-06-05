@@ -23,6 +23,7 @@ Use the command python -m venv venv to create a virtual environment.
 Activate the virtual environment using source venv/bin/activate on Linux/Mac or venv\Scripts\activate on Windows.
 c. Install Dependencies
 Install all required packages using pip install -r requirements.txt. This command reads the requirements.txt file and installs all the listed packages.
+
 4. Configuring the Django Project
 
 a. Apply Migrations
@@ -31,10 +32,12 @@ b. Create a Superuser
 Create a superuser account to access the Django admin interface with python manage.py createsuperuser. Follow the prompts to set a username, email, and password.
 c. Collect Static Files
 Collect all static files for the project with python manage.py collectstatic. This command copies all static files to the directory specified in your settings.
+
 5. Running the Development Server
 
 Start the Django development server using python manage.py runserver.
 Open your web browser and go to http://127.0.0.1:8000/ to view the application.
+
 6. API Integration
 
 a. Obtain an API Key
@@ -57,15 +60,18 @@ static: Directory for static files such as CSS.
 db.sqlite3: SQLite3 database file.
 requirements.txt: List of dependencies.
 README.md: Project documentation.
+
 8. Customizing the Application
 
 Change Heading Colors
 Modify the CSS to change the heading colors as needed.
 Adding an Animated Background
 Use CSS keyframes to animate the background image, providing a visually appealing effect.
+
 9. Contributing to the Project
 
 Contributions are welcome. Fork the repository, make your changes, and submit a pull request.
+
 10. License
 
 The project is licensed under the MIT License. Refer to the LICENSE file for more details.
